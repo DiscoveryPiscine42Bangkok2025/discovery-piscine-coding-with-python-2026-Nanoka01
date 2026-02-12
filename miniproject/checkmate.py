@@ -4,12 +4,12 @@ def checkmate(board):
         return
 
     rows = board.split("\n")
-    print(rows)
+
     size = len(rows)
 
     # ตรวจว่าเป็นกระดานสี่เหลี่ยมจัตุรัส
     for row in rows:
-        print(row)
+
         if len(row) != size:
             print("Error")
             return
@@ -54,11 +54,11 @@ def checkmate(board):
         return
 
     king_r, king_c = king_pos
-    print(king_r,king_c)
+
     
     if p_pos:
         p_r, p_c = p_pos
-        print(p_r,p_c)
+
         
         pawn_moves = [(-1, -1), (-1, 1)]
         for dr, dc in pawn_moves:
@@ -71,14 +71,14 @@ def checkmate(board):
     
     if b_pos:
         b_r, b_c = b_pos
-        print(b_r,b_c)
+
         bishop_move = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
         for dr, dc in bishop_move:
             r = b_r + dr
             c = b_c + dc
             while 0 <= r < size and 0 <= c < size:
                 if rows[r][c] == "K":
-                    print("Success Bishop")
+                    print("Success")
                     have_king = False
                     return
                 
@@ -88,14 +88,14 @@ def checkmate(board):
                 c += dc
     if r_pos:
         r_r, r_c = r_pos
-        print(r_r,r_c)
+
         rook_move = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         for dr, dc in rook_move:
             r = r_r + dr
             c = r_c + dc
             while 0 <= r < size and 0 <= c < size:
                 if rows[r][c] == "K":
-                    print("Success Rook")
+                    print("Success")
                     have_king = False
                     return
                 
@@ -106,14 +106,14 @@ def checkmate(board):
     
     if q_pos:
         q_r, q_c = q_pos
-        print(q_r,q_c)
+
         queen_move = [(-1, 0), (1, 0), (0, -1), (0, 1),(-1, -1), (-1, 1), (1, -1), (1, 1)]
         for dr, dc in queen_move:
             r = q_r + dr
             c = q_c + dc
             while 0 <= r < size and 0 <= c < size:
                 if rows[r][c] == "K":
-                    print("Success queen")
+                    print("Success")
                     have_king = False
                     return
                 
