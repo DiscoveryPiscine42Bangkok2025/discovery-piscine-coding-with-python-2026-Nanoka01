@@ -53,8 +53,6 @@ def checkmate(board):
         print("Error")
         return
 
-    king_r, king_c = king_pos
-
     
     if p_pos:
         p_r, p_c = p_pos
@@ -65,7 +63,7 @@ def checkmate(board):
             r = p_r + dr
             c = p_c + dc
             if rows[r][c] == "K" and 0 <= r < size and 0 <= c < size:
-                print("Success Pawn")
+                print("Success")
                 have_king = False
                 return
     
