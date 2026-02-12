@@ -81,9 +81,11 @@ def checkmate(board):
                     print("Success Bishop")
                     have_king = False
                     return
+                
+                if rows[r][c] != ".":
+                        break                  
                 r += dr
                 c += dc
-    
     if r_pos:
         r_r, r_c = r_pos
         print(r_r,r_c)
@@ -96,6 +98,9 @@ def checkmate(board):
                     print("Success Rook")
                     have_king = False
                     return
+                
+                if rows[r][c] != ".":
+                        break                  
                 r += dr
                 c += dc
     
@@ -111,6 +116,9 @@ def checkmate(board):
                     print("Success queen")
                     have_king = False
                     return
+                
+                if rows[r][c] != ".":
+                        break                  
                 r += dr
                 c += dc
 
