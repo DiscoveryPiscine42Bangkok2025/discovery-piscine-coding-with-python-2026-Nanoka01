@@ -1,6 +1,6 @@
 def checkmate(board):
     if not board:
-        print("Fail")
+        print("Error")
         return
 
     rows = board.split("\n")
@@ -32,7 +32,7 @@ def checkmate(board):
                     king_pos = (i, j)
                 else:
                     print("Error")
-                    break
+                    return
             # หา Pawn
             if rows[i][j] == "P":
                 p_pos = (i,j)
@@ -64,8 +64,8 @@ def checkmate(board):
         for dr, dc in pawn_moves:
             r = p_r + dr
             c = p_c + dc
-            if rows[r][c] == "K":
-                print("Fail Pawn")
+            if rows[r][c] == "K" and 0 <= r < size and 0 <= c < size:
+                print("Success Pawn")
                 have_king = False
                 return
     
@@ -78,7 +78,7 @@ def checkmate(board):
             c = b_c + dc
             while 0 <= r < size and 0 <= c < size:
                 if rows[r][c] == "K":
-                    print("Fail Bishop")
+                    print("Success Bishop")
                     have_king = False
                     return
                 r += dr
@@ -93,7 +93,7 @@ def checkmate(board):
             c = r_c + dc
             while 0 <= r < size and 0 <= c < size:
                 if rows[r][c] == "K":
-                    print("Fail Rook")
+                    print("Success Rook")
                     have_king = False
                     return
                 r += dr
@@ -108,11 +108,11 @@ def checkmate(board):
             c = q_c + dc
             while 0 <= r < size and 0 <= c < size:
                 if rows[r][c] == "K":
-                    print("Fail queen")
+                    print("Success queen")
                     have_king = False
                     return
                 r += dr
                 c += dc
 
     if have_king:
-        print("Success")
+        print("Fail")
